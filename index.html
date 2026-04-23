@@ -1,0 +1,666 @@
+<html>
+	<head>
+		<title>Bekind</title>
+		<style>
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+			body, h1, h2, h3, p, ol, ul{margin: 0; padding: 0;}
+
+			html{
+				font-size: 16px;
+				word-break: keep-all;
+				line-height: 1.7;
+			  	font-family: "pretendard", sans-serif;
+  				font-optical-sizing: auto;
+  				font-weight: 400;
+  				font-style: normal;	
+  				color: #000623;
+			}
+			}
+			body {
+    			font-family: 'Pretendard', sans-serif;
+    			line-height: 1.6;
+			}
+			section{
+			 	padding: 100px 0;
+			 }
+			.contents{
+				width: 900px;
+				margin: auto;
+				padding-top: 60px;
+			}
+			.full-section{
+				width: 100%;
+			}
+			.header{
+				background: url(header.png);
+				background-size: cover;
+				background-position: center;
+				padding: 80px 0 60px 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			.header-logo{
+				width: 100px;
+				height: auto;
+				padding-bottom: 350px;
+			}
+			.type-slider{
+				display: flex;
+				gap: 30px;
+				overflow-x: auto;
+				padding: 60px 0;
+
+				scroll-snap-type: x mandatory;
+
+				padding-left: calc((100vw - 1000px) / 2);
+    			padding-right: calc((100vw - 1000px) / 2);
+			}
+
+			.type-slider::-webkit-scrollbar{
+				display: none;
+			}
+
+			.type-card{
+				position: relative;
+				flex-shrink: 0;
+				min-width: 280px;
+				height: 380px;
+				border-radius: 24px;
+				overflow: hidden;
+				background: #f5f5f5;
+				cursor: pointer;
+
+				scroll-snap-align: start;
+			}
+			
+			.type-card img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			
+			/* hover 설명 */
+			.overlay{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+
+				background: rgba(0,0,0,0.75);
+				color: white;
+			
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			
+				opacity: 0;
+				transition: 0.3s;
+				padding: 20px;
+				box-sizing: border-box;
+			}
+			
+			.type-card:hover .overlay{
+				opacity: 1;
+			}
+			
+			.overlay h3{
+				font-size: 1rem;
+				margin-bottom: 5px;
+			}
+			
+			.overlay p{
+				font-size: 0.8rem;
+				line-height: 1.4;
+			}
+
+			.section-block{
+				display: flex;
+				flex-direction: column;
+				gap: 30px;
+			}
+			.flex-container{
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 60px;
+			}
+
+			.text-box{
+				width: 500px;
+				flex-shrink: 0;
+			}
+
+			.image-box{
+				flex-grow: 1;
+				display: flex;
+				justify-content: flex-start;
+				gap: 40px;
+			}
+			.img-box{
+				position: relative;
+				width: 100%;
+				height: 200px;
+				margin-bottom: 20px;
+			}
+			.img-box img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: auto;
+				transition: 0.3s ease-in-out;
+			}
+			.heart-item{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 160px;
+				cursor: pointer;
+			}
+			.heart-item .hover{
+				opacity: 0;
+			}
+			.heart-item:hover .default{
+				opacity: 0;
+			}
+			.heart-item:hover .hover{
+				opacity: 1;
+			}
+
+			.step-flex-container{
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				padding-top: 40px;
+				align-items: stretch;
+			}
+			.step-card{
+				width: calc(50% - 10px);
+				background: rgba(255, 255, 255, 0.1);
+    			border: 1px solid rgba(255, 255, 255, 0.3);
+    			padding: 25px;
+    			border-radius: 15px;
+    			box-sizing: border-box;
+    			backdrop-filter: blur(3px);
+			}
+			.step-card h2{
+				font-size: 1.4rem;
+				margin-bottom: 15px;
+				color: white;
+			}
+
+			/*사진 배경*/
+			.step1{
+				background: url(step1.png);
+				background-size: cover;
+				background-attachment: fixed;
+				color: white;
+			}
+			.step2{
+				background: url(step2.png);
+				background-size: cover;
+				background-attachment: fixed;
+				color: white;
+			}	
+			.step3{
+				background: url(step3.png);
+				background-size: cover;
+				background-attachment: fixed;
+				color: white;
+			}						
+
+			/*폰트*/
+			.title{
+				color: white;
+				font-size: 7rem;
+				font-weight: 800;
+				letter-spacing: -0.02em;
+				padding-bottom: 24px;
+				line-height: 1.1;
+			}
+			.sub-text{
+				font-size: 1.4rem;
+				font-weight: 500;
+				letter-spacing: 0.05em;
+			}
+
+			.mini-title{
+				font-size: 3rem;
+				font-weight: 800;
+				padding-bottom: 24px;
+			}
+
+			.normal{
+				font-weight: 600;
+				line-height: 2;
+			}
+
+			.caption{
+				font-size: 1rem;
+				font-weight: 600;
+				text-align: center;
+			}
+
+			.step-font{
+				color: white;
+				font-size: 1.4rem;
+				line-height: 2;
+				font-weight: 600;
+			}
+
+			/*글자 배치*/
+			.center{
+				text-align: center;
+			}
+
+			.left{
+				text-align: left;
+				padding-right: 500px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<img src="logo.png" class="header-logo">
+			<div class="contents center">
+				<h1 class="title">
+					이제는 성격도<br>성형이 가능하다
+				</h1>
+				<p class="sub-text">
+					비카인드 성형내과에서 전세계에 처음 선보이는 혁신
+				</p>
+			</div>
+		</header>
+
+		<section>
+			<div class="contents">
+				<div class="flex-container">
+
+					<div class="text-box">
+						<h2 class="mini-title">
+							성격도 치료가 필요한 영역
+						</h2>
+						<p class="normal">
+							반복되는 대인관계 문제, 조절되지 않는 언어 습관, 타인을 통제하려는 행동 패턴.
+							이러한 문제를 교정이 필요한 '못된 심보 증후군'으로 진단합니다.
+							당신을 힘들게 하는 성격의 문제는 단순한 성향이 아닌 심장 내 반응 구조의 왜곡에서 비롯된 치료가 필요한 상태입니다.
+						</p>
+					</div>
+
+					<div class="image-box">
+						<div class="heart-item">
+							<div class="img-box">
+								<img src="heart-icon1.png" class="default">
+								<img src="heart1.png" class="hover">
+							</div>
+							<p class="caption">정상 심장</p>
+						</div>
+
+						<div class="heart-item">
+							<div class="img-box">
+								<img src="heart-icon2.png" class="default">
+								<img src="heart2.png" class="hover">
+							</div>
+							<p class="caption">못된 심보 증후군 심장</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="contents">
+				<h2>
+					진료 안내
+				</h2>
+				<p>
+					비카인드는 개인의 성향을 정밀 분석하여 맞춤형 성격 교정 수술을 시행합니다.
+				</p>
+				<p>
+					개인 성향 정밀 검사 PKA Personality Scan
+				</p>
+				<p>
+					행동 반응 패턴 분석
+				</p>
+				<p>
+					감정 민감도 테스트
+				</p>
+				<p>
+					대인관계 스트레스 지수 측정
+				</p>
+			</div>
+		</section>
+
+		<section class="full-section">
+			<div class="contents">
+				<h2>주요 교정 대상<br>
+				(아래 슬라이드의 시작점을 소제목과 동일한 지점에서 시작하고 싶은데 어떻게 하는 건지 모르겠습니다...)</h2>
+			</div>
+				<div class="type-slider">
+		
+					<div class="type-card">
+						<img src="icon1.png">
+						<div class="overlay">
+							<h3>도벽형</h3>
+							<p>충동적 획득 욕구가 반복적으로 발생하는 행동 패턴</p>
+						</div>
+					</div>
+		
+					<div class="type-card">
+						<img src="icon2.png">
+						<div class="overlay">
+							<h3>가스라이팅형</h3>
+							<p>타인의 인지 구조를 왜곡하여 관계를 지배하려는 성향</p>
+						</div>
+					</div>
+		
+					<div class="type-card">
+						<img src="icon3.png">
+						<div class="overlay">
+							<h3>언어 공격형</h3>
+							<p>감정 자극 시 공격적 언어 반응이 과도하게 표출됨</p>
+						</div>
+					</div>
+		
+					<div class="type-card">
+						<img src="icon4.png">
+						<div class="overlay">
+							<h3>공감 결핍형</h3>
+							<p>타인의 감정 신호를 인식하지 못하는 반응 구조</p>
+						</div>
+					</div>
+		
+					<div class="type-card">
+						<img src="icon5.png">
+						<div class="overlay">
+							<h3>통제 집착형</h3>
+							<p>관계 내 모든 변수를 통제하려는 강박적 행동 패턴</p>
+						</div>
+					</div>
+		
+					<div class="type-card">
+						<img src="icon6.png">
+						<div class="overlay">
+							<h3>살인 충동형</h3>
+							<p>살인 충동이 수시로 드는 사이코패스적 반응 패턴</p>
+						</div>
+					</div>
+				</div>
+		</section>
+
+
+		<section>
+			<div class="contents">
+				<h2>
+					Personality Structural Reconstruction (PSR)
+				</h2>
+				<p>
+					성격 구조 재형성술
+					교정은 단순한 제거가 아닌 정밀한 ‘형상 재구성(Forming)’ 과정으로 이루어집니다.
+				</p>
+			</div>
+		</section>
+
+		<section>
+			<div class="contents">
+				<h2>
+					전 세계에서 선택하는 성격 교정 전문 기관
+				</h2>
+				<p>
+					비카인드 성형내과는 국내를 넘어 북미, 유럽, 아시아 전역에서 내원하는 환자 데이터를 기반으로 성격 구조 교정 분야의 표준을 만들어가고 있습니다.
+				</p>
+				<p>해외 환자 비율 62%</p>
+			</div>
+		</section>
+
+		<section class="step1">
+			<div class="contents white">
+				<p>
+					투명한 수술 과정
+				</p>
+
+				<h2 class="mini-title">
+					1. 박리
+				</h2>
+				<p class="step-font left">
+					Structural Exposure & Layer Separation
+					심장 외막을 따라 감정 반응층과 행동 반응층을 분리합니다.
+					이 과정에서 성격 왜곡이 집중된 부위를 응력 집중 구간(Stress Concentration Zone)으로 식별합니다.
+				</p>
+			</div>
+		</section>
+
+		<section class="step2">
+			<div class="contents">
+				<h2 class="mini-title">
+					2. 심장 적출 및 안정
+				</h2>
+				<p class="step-font left">
+					Cardiac Extraction & Thermal Stabilization
+					심장을 체외로 이동시킨 후
+					저온 안정화 챔버에서 조직의 변형을 억제합니다.
+					<!-- → 목적: 외부 개입 시 구조 왜곡 방지 -->
+				</p>
+			</div>
+		</section>
+
+		<section>
+			<div class="contents">
+				<h2 class="mini-title">
+					3. 성형 준비
+				</h2>
+				<p class="left">
+					본격적인 성형 전, 심장 조직은 다음 상태로 조정됩니다.
+					반응성 완화 (Reactivity Reduction)
+					조직 유연성 확보 (Ductility Adjustment)
+					내부 응력 완화 (Stress Relief Conditioning)
+					이 단계는 이후 성형 정밀도를 좌우합니다.
+				</p>
+			</div>
+		</section>	
+
+		<section class="step3">
+			<div class="contents">
+				<h2 class="mini-title">
+					4. 망치 성형
+				</h2>
+				<p class="step-font left">
+					비카인드 수술의 중심 단계입니다.
+					정밀 타격 기반 구조 재배열이 진행됩니다.
+				</p>
+				
+				<div class="step-flex-container">
+					<div class="step-card">
+						<h2>
+							Primary Forging 단조
+						</h2>
+						<p>
+							특수 제작된 의료용 헤머를 사용하여 문제 성향이 형성된 부위를 중심으로 국소 압축을 가합니다.<br>
+<!-- 							충동성 영역 - 압축 밀도 증가<br>
+							공격성 영역 - 확산 및 분산 유도<br>
+							왜곡된 공감 반응 - 재배열<br> -->
+							이 과정은 성격의 결 방향(Grain)을 재정렬하는 핵심 단계입니다.
+						</p>
+					</div>
+
+				<div class="step-card">
+					<h2>
+						Raising 레이징
+					</h2>
+					<p>
+						심장의 특정 부위를 안쪽에서 바깥으로 밀어 올려 내부 반응 볼륨을 조정합니다.
+						공감 능력 부족 환자에서 주로 적용되는 단계입니다.
+					</p>
+				</div>
+
+				<div class="step-card">
+					<h2>
+						Planishing 플래니싱
+					</h2>
+					<p>
+						미세한 반복 타격을 통해 표면의 불균형한 반응 패턴을 균일화합니다.
+						감정 기복 완화, 감정 반응의 일관성 확보를 위한 단계입니다.
+					</p>
+				</div>
+
+				<div class="step-card">
+					<h2>
+						Truing 트루잉
+					</h2>
+					<p>
+						전체 구조를 재정렬하여 심장의 좌우 균형과 반응 대칭성을 맞춥니다.
+						과잉 반응 교정, 둔감 반응 교정을 위한 마무리 단계입니다.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="contents">
+				<h2>
+					5. 열처리 기반 안정화
+				</h2>
+				<p>
+					성형된 구조를 고정하기 위한 단계입니다.
+				</p>
+				<P>
+					담금질
+					급속 냉각을 통해 재형성된 구조를 즉시 고정
+					반응 속도 안정화
+					구조 기억 유지
+				</P>
+				<p>
+					담금질로 인해 발생할 수 있는 과도한 경직성과 취성을 완화
+					감정 유연성 회복
+					과도한 이성화 방지
+				</p>
+			</div>
+		</section>	
+
+		<section>
+			<div class="contents">
+				<h2>
+					6. 재이식 및 동기화
+				</h2>
+				<p>
+					Reimplantation & Neural Synchronization
+					성형된 심장을 재삽입 후 신경 반응과의 정밀 봉합을 진행합니다.
+					새로운 성격 구조가 신체 전반에 자연스럽게 적용되도록 유도
+				</p>
+			</div>
+		</section>
+
+		<section>
+			<div class="contents">
+				<h2>
+					7. 회복 및 적응 단계
+				</h2>
+				<p>
+					Recovery & Adaptation
+					평균 입원 기간: 10~14일
+					초기 성격 적응 관찰
+					사회적 반응 테스트 진행
+				</p>
+			</div>
+		</section>
+
+		<section>
+			<div class="contents">
+				<h2>
+					비카인드의 차별점
+				</h2>
+				<p>
+					단순 교정이 아닌 형태 재설계 수술
+					유일한 성격 수술 시스템
+					감정이 아닌 구조를 다루는 의료 기술
+					전
+				</p>
+			</div>
+		</section>
+
+		<section>
+			<div class="contents">
+				<h2>
+					수술 사례
+				</h2>
+				<p>
+					단순 교정이 아닌 형태 재설계 수술
+					유일한 성격 수술 시스템
+					감정이 아닌 구조를 다루는 의료 기술
+					전
+				</p>
+			</div>
+		</section>
+
+	</body>
+</html>
